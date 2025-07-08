@@ -7,7 +7,7 @@ export default function MainLayout() {
     <div>
       <Header />
 
-      <main className="h-full min-h-[calc(100vh-56px)] pt-20">
+      <main className="h-full min-h-[calc(100vh-56px)] pt-20 bg-gradient-to-r from-blue-500 to-purple-500">
         <Outlet />
       </main>
 

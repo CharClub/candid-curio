@@ -46,7 +46,7 @@ export type ButtonProps = HTMLMotionProps<"button"> & {
 export function Button({ className, variant, size, ...props }: ButtonProps) {
   return (
     <motion.button
-      whileHover={variant === "primary" ? { scale: 1.05 } : {}}
+      whileHover={variant === "primary" ? { scale: 1.1, backgroundColor: "#4A90E2" } : {}}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     />

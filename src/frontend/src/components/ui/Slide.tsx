@@ -93,7 +93,7 @@ const ButtonSlider = ({ items, onItemSelected }: ButtonSliderProps) => {
         onClick={handlePrev}
         disabled={!canScrollLeft}
         className={cn(
-          "absolute z-10 left-0 top-1/2 size-11 -translate-y-1/2 items-center justify-center bg-gradient-to-r from-35% from-[#15171D] fill-white",
+          "absolute z-10 right-full top-1/2 size-11 -translate-y-1/2 items-center justify-center fill-white",
           canScrollLeft ? "flex" : "hidden",
         )}
       >
@@ -105,7 +105,7 @@ const ButtonSlider = ({ items, onItemSelected }: ButtonSliderProps) => {
         onClick={handleNext}
         disabled={!canScrollRight}
         className={cn(
-          "absolute z-10 right-[-24px] top-1/2 size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-gradient-to-l from-[#15171D] from-65% fill-white",
+          "absolute z-10 left-[calc(100%+16px)] top-1/2 size-11 -translate-x-1/2 -translate-y-1/2 items-center justify-center fill-white",
           canScrollRight ? "flex" : "hidden",
         )}
       >

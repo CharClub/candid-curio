@@ -121,7 +121,7 @@ const ProfilePanel = () => {
           <div className="flex w-full items-center gap-4 px-4 py-3">
             <div className="font-medium text-sm text-white flex items-center justify-between w-full">
               <div>
-                <p className="text-gray-500">Account ID</p>
+                <p className="text-gray-500">CharClub Candid Curio</p>
                 {getShortenAddress(defaultAccountId)}
               </div>
               <button onClick={() => handleCopy(defaultAccountId)}>
@@ -134,7 +134,7 @@ const ProfilePanel = () => {
           <div className="flex w-full items-center gap-4 px-4 py-3">
             <div className="font-medium text-sm text-white flex items-center justify-between w-full">
               <div>
-                <p className="text-gray-500">Principal ID</p>
+                <p className="text-gray-500">A decentralized platform for digital curiosities</p>
                 {getShortenAddress(principalId)}
               </div>
               <button onClick={() => handleCopy(principalId)}>
