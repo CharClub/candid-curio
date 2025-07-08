@@ -1,59 +1,87 @@
-# `CharclubMarketplace`
+# CharClub Candid Curio
 
-Welcome to your new `CharclubMarketplace` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+**CharClub Candid Curio** is a decentralized platform for curating and sharing verifiable, interactive digital "curiosities"—unique, ephemeral experiences and self-authenticating narratives powered by the Internet Computer.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+---
 
-To learn more before you start working with `CharclubMarketplace`, see the following documentation available online:
+## Project Overview
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Motoko Programming Language Guide](https://internetcomputer.org/docs/current/motoko/main/motoko)
-- [Motoko Language Quick Reference](https://internetcomputer.org/docs/current/motoko/main/language-manual)
+CharClub Candid Curio envisions a new realm of digital expression beyond mere asset ownership. Instead of focusing on tradable NFTs, our platform is a unique repository for "candid curios"—singular, verifiable digital experiences, interactive stories, or ephemeral digital art pieces that are designed to be shared and experienced, rather than bought and sold. Built entirely on the Internet Computer Protocol, each "curio" is a self-contained canister that maintains its own integrity and state, ensuring tamper-proof authenticity and direct, seamless interaction ("Candid") without intermediaries.
 
-If you want to start working on your project right away, you might want to try the following commands:
+Our roadmap centers on empowering creators to mint these unique digital moments, offering tools for crafting interactive narratives, personalized ephemeral art installations, or verifiable digital mementos linked to real-world events. Users can discover, interact with, and genuinely "experience" these curios, contributing to a decentralized archive of unique digital phenomena. CharClub Candid Curio aims to cultivate a community around the appreciation of rare digital experiences, fostering a new kind of digital provenance based on verifiable interaction and ephemeral beauty. It's about collecting moments, not just tokens, in a truly decentralized and interactive environment.
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended)
+- [DFX SDK](https://internetcomputer.org/docs/current/developer-docs/setup/install)
+- [pnpm](https://pnpm.io/) (recommended for monorepo)
+
+### Installation
+
+Clone the repository and install dependencies:
 
 ```bash
-cd CharclubMarketplace/
-dfx help
-dfx canister --help
+git clone https://github.com/CharClub/candid-curio.git
+cd candid-curio
+pnpm install
 ```
 
-## Running the project locally
+### Running the Project Locally
 
-If you want to test your project locally, you can use the following commands:
+Start the local Internet Computer replica and deploy canisters:
 
 ```bash
-# Starts the replica, running in the background
 dfx start --background
-
-# Deploys your canisters to the replica and generates your candid interface
 dfx deploy
 ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
-
-If you have made changes to your backend canister, you can generate a new candid interface with
+Start the frontend development server:
 
 ```bash
-npm run generate
+pnpm dev:web
 ```
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+The app will be available at [http://localhost:5173](http://localhost:5173) (or the port shown in your terminal).
 
-If you are making frontend changes, you can start a development server with
+---
 
-```bash
-npm start
-```
+## Project Structure
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
+- `src/backend/` — Motoko backend canisters and types
+- `src/frontend/` — React/TypeScript frontend
+- `src/frontend/src/components/` — UI components
+- `src/frontend/src/pages/` — App pages and views
+- `src/frontend/src/hooks/` — React hooks for data and state
+- `src/frontend/src/utils/` — Utility functions
 
-### Note on frontend environment variables
+---
 
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
+## Contributing
 
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
+We welcome contributions! Please open issues or pull requests to help revive and improve the project.
+
+---
+
+## Roadmap
+
+- [ ] Revive and modernize the UI
+- [ ] Add tools for creators to mint and share "curios"
+- [ ] Enhance interactive and ephemeral experience support
+- [ ] Expand documentation and onboarding
+
+---
+
+## License
+
+[MIT](LICENSE)
+
+---
+
+## Acknowledgements
+
+- [DFINITY Internet Computer](https://internetcomputer.org/)
+- All contributors and the open source community
