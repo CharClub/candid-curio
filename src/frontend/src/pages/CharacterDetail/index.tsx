@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import LeftPanelNftDetail from "./LeftPanelNftDetail";
 import RightPanelNftDetail from "./RightPanelNftDetail";
+import { useEffect } from "react";
 
 type Params = {
   tokenId: string;
@@ -11,9 +12,11 @@ export default function CharacterDetailPage() {
   const params = useParams<Params>();
   const tokenId = Number(params.tokenId);
 
-  if (Number.isNaN(tokenId)) {
-    navigate("/404");
-  }
+  useEffect(() => {
+    if (Number.isNaN(tokenId)) {
+      navigate("/404");
+    }
+  }, [tokenId, navigate]);
 
   return (
     <section className="mx-auto max-w-[1440px] px-12 ">

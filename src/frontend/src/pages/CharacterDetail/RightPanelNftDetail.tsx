@@ -46,6 +46,7 @@ const RightPanelNftDetail = ({ tokenId }: RightPanelNftDetailProps) => {
           <div className="flex gap-1">
             {tokenMetadata?.tags?.map((tag) => (
               <div
+                key={tag}
                 className="rounded-lg bg-other-bg-1 px-3 py-1.5 text-sm font-medium leading-5"
               >
                 {titleCase(tag)}
