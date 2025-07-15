@@ -33,6 +33,7 @@ import Big from "big.js";
 import { useEffect, useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
+import { Copy } from "@charm/components/icons/Copy";
 
 export type RightPanelNftDetailProps = {
   tokenId: string | number;
@@ -340,6 +341,19 @@ const LeftPanelNftDetail = ({ tokenId }: RightPanelNftDetailProps) => {
               <HeartIcon /> Add to Wish list
             </button>
           )}
+          {/* Share NFT Button */}
+          <button
+            type="button"
+            className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-other-bgTag fill-white p-2 text-base font-medium leading-6 hover:bg-blue-700 transition"
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href);
+              toast.success("NFT link copied!");
+            }}
+            title="Share NFT"
+          >
+            <Copy className="w-5 h-5" />
+            <span className="hidden sm:inline">Share</span>
+          </button>
         </div>
         <div className="flex gap-4 rounded-3xl bg-other-bgSection p-6">
           <div className="relative size-12 rounded-full border-2 border-primary p-0.5">
