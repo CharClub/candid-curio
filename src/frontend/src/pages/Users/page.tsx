@@ -7,6 +7,7 @@ import { getShortenAddress, isValidAddress } from "@charm/utils/crypto";
 import { useQueryIcrc7Tokens } from "@charm/hooks/queries/icrc7Tokens";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import { Copy } from "@charm/components/icons/Copy";
 
 type Params = {
   address: string;
@@ -51,12 +52,29 @@ export default function UserProfile() {
         </div>
       </section>
       <section className="mx-auto flex max-w-[1440px] flex-col gap-6 px-12">
-        <div>
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6 gap-2">
           {address && (
-            <p className="mb-1 text-h5 font-bold leading-h5">
-              {getShortenAddress(address)}
-            </p>
+            <>
+              <p className="mb-1 text-h5 font-bold leading-h5">
+                {getShortenAddress(address)}
+              </p>
+              <button
+                className="flex items-center gap-2 px-3 py-1.5 rounded bg-other-bg-2 hover:bg-other-bg-1 transition text-sm"
+                onClick={() => {
+                  if (address) {
+                    navigator.clipboard.writeText(address);
+                    toast.success("Address copied!");
+                  }
+                }}
+              >
+                <Copy className="w-4 h-4" />
+                Copy Address
+              </button>
+            </>
           )}
+          <span className="text-sm text-opacityColor-70">
+            {tokenMetadatas ? `${tokenMetadatas.length} NFT${tokenMetadatas.length === 1 ? "" : "s"} owned` : ""}
+          </span>
         </div>
         <TabGroup>
           <div className="mb-6 flex">
